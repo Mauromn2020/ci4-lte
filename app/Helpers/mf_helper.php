@@ -23,6 +23,19 @@
 	define('EMAIL2',  'mauro<img src="img/arrouba36x36.fw.png" alt="arrouba email">multipabx.com.br');
 
 
+	function mensagem($msg){
+		switch ($msg) {
+		case 'ok':        msg_ok('Cadastrado!');                     break;
+		case 'erro':      msg_erro('Erro ao cadastrar!');            break;  
+		case 'deslogado': msg_att('Deslogado ! Logar Novamente ?');  break;
+		case 'perigo':    msg_per('Não mostre seu login <br>e senha a ninguém ?');  break;
+		default: '';      msg_ok('Bem Vindo !');  break;
+		}
+	}
+
+ 
+
+
 	/* MENSAGENS DE ERRO PARA O USUÁRIO
 	=========================================================*/
 	function msg_erro($mensagem){		
@@ -57,7 +70,15 @@
 		echo'</div>';
 	}
 
-
+function msg_per($mensagem){		
+		echo'<br>';
+		echo'<div class="alert alert-dark alert-dismissible fade show" role="alert">';
+		echo'<strong>PERIGO!<br></strong>' .$mensagem;
+		echo'<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+		echo' <span aria-hidden="true">&times;</span>';
+		echo'</button>';
+		echo'</div>';
+	}
 	/* VOLTAR PARA PÁGINA ANTERIOR
 	==========================================================*/
 	function voltar()

@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MMsys - Login</title>
-
-  <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/fontawesome-free/css/all.min.css">
-  <!-- icheck bootstrap -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/css/adminlte.min.css">
 </head>
+
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
@@ -24,15 +21,17 @@
     <div class="card-body login-card-body">
 
       <?php
-        switch ($msg) {
-          case 'ok':        msg_ok('Cadastrado!');                     break;
-          case 'erro':      msg_erro('Erro ao cadastrar!');            break;  
-          case 'deslogado': msg_att('Deslogado ! Logar Novamente ?');  break;
-          default:          '';                                        break;
-        }
+        mensagem($msg);
+        // switch ($msg) {
+        //   case 'ok':        msg_ok('Cadastrado!');                     break;
+        //   case 'erro':      msg_erro('Erro ao cadastrar!');            break;  
+        //   case 'deslogado': msg_att('Deslogado ! Logar Novamente ?');  break;
+        //   case 'perigo':    msg_per('Não mostre seu login <br>e senha a ninguém ?');  break;
+        //   default: '';                                                 break;
+        // }
       ?>
 
-      <p class="login-box-msg">Iniciar uma nova sessão.</p>
+      <p class="login-box-msg">Iniciar uma nova sessão. <br> Para ter acesso total !</p>
 
       <form action="<?php echo base_url() ?>/public/login/validar" method="post">
 		  
