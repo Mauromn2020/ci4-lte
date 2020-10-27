@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AbstractLogger.php" server="www.mmsites.com.br/public_html/" local="132327828800000000" remote="132475944000000000" Dst="0" />
+<file name="InvalidArgumentException.php" server="www.mmsites.com.br/public_html/" local="132327828800000000" remote="132475944000000000" Dst="0" />
+<file name="LoggerAwareInterface.php" server="www.mmsites.com.br/public_html/" local="132327828800000000" remote="132475944000000000" Dst="0" />
+<file name="LoggerAwareTrait.php" server="www.mmsites.com.br/public_html/" local="132327828800000000" remote="132475944000000000" Dst="0" />
+<file name="LoggerInterface.php" server="www.mmsites.com.br/public_html/" local="132327828800000000" remote="132475944000000000" Dst="0" />
+<file name="LoggerTrait.php" server="www.mmsites.com.br/public_html/" local="132327828800000000" remote="132475944000000000" Dst="0" />
+<file name="LogLevel.php" server="www.mmsites.com.br/public_html/" local="132327828800000000" remote="132475944000000000" Dst="0" />
+<file name="NullLogger.php" server="www.mmsites.com.br/public_html/" local="132327828800000000" remote="132475944000000000" Dst="0" />
+</dwsync>
