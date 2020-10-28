@@ -31,6 +31,8 @@
         // }
       ?>
 
+
+
       <p class="login-box-msg">Iniciar uma nova sessão. <br> Para ter acesso total !</p>
 
       <form action="<?php echo base_url() ?>/public/login/validar" method="post">

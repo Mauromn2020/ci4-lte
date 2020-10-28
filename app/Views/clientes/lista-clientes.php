@@ -1,4 +1,3 @@
-
 <div class="container">  
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -16,9 +15,7 @@
               <li class="breadcrumb-item active">Clientes</li>
             </ol>
           </div>
-			<button class="btn btn-warning "><i class="fas fa-plus fa-2x" style="color: #12043A;"></i>    NOVO CLIENTE </button>  
-			
-        </div>
+      </div>
       </div><!-- /.container-fluid -->
     </section>
 

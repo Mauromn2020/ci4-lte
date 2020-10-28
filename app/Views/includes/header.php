@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/summernote/summernote-bs4.min.css">	
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/sweetalert2/sweetalert2.min.css">
 	
 </head>
 <body class="hold-transition layout-top-nav">

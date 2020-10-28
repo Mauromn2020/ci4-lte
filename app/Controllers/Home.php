@@ -30,8 +30,11 @@
 		}	
 		
 		
-		public function teste(){
-			echo view('teste');
+		public function modal($xx = ''){
+			$data['xx'] = $xx;
+			echo view('includes/header', $data);
+			echo view('views-modelo/modals');
+			echo view('includes/footer');
 		}
 
 	}
