@@ -14,24 +14,31 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../index2.html"><b>Sistemas</b>MMsys</a>
+    <a href="<?php echo base_url();?>/public "><b>Sistemas</b>MMsys</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
 
+    <?php 
+        if( $msg != ''){
+          //alerta($msg);
+          mensagem($msg); 
+          //mesage("ERRO !","Erro ao processar a $msg","error");         
+        }
+   //mesage('SUCESSO','Registro Salvo com sucesso','success');  
+    
+    ?>
+
       <?php
-        mensagem($msg);
         // switch ($msg) {
-        //   case 'ok':        msg_ok('Cadastrado!');                     break;
-        //   case 'erro':      msg_erro('Erro ao cadastrar!');            break;  
-        //   case 'deslogado': msg_att('Deslogado ! Logar Novamente ?');  break;
-        //   case 'perigo':    msg_per('Não mostre seu login <br>e senha a ninguém ?');  break;
-        //   default: '';                                                 break;
-        // }
+        // case 'logar':     mesage('ATENÇÃO !','Voçê não está logado !','warning');  break;
+        // case 'erro':      mesage('ERRO !','Erro ao processar o registro !','error');  break;
+        // case 'deslogado': mesage('ATENÇÃO !','Voçê não está logado !','warning');  break;
+        // case 'perigo':    mesage('PERIGO !','Voçê não deve fazer isso !','dark');  break;
+        // default: '';                                                 break;         
+        //}
       ?>
-
-
 
       <p class="login-box-msg">Iniciar uma nova sessão. <br> Para ter acesso total !</p>
 

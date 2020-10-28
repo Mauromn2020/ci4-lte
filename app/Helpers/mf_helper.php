@@ -3,7 +3,7 @@
 	/* CONSTANTES
 	=========================================================*/
     define('base',    'https://mmsites.com.br/ci4-lte/');
-
+	define('SITE',    'https://mmsites.com.br/ci4-lte/');
 	define('ANO', 	   date("Y", time()));
 
 	define('EMPRESA', 'MMSites - ci4');
@@ -25,15 +25,57 @@
 
 	function mensagem($msg){
 		switch ($msg) {
-		case 'ok':        msg_ok('Cadastrado!');                     break;
-		case 'erro':      msg_erro('Erro ao cadastrar!');            break;  
-		case 'deslogado': msg_att('Deslogado ! Logar Novamente ?');  break;
-		case 'perigo':    msg_per('Não mostre seu login <br>e senha a ninguém ?');  break;
-		default: '';      msg_ok('Bem Vindo !');  break;
+		case 'cad':       mesage('PERIGO !','Você não deve fazer isso !','dark');  break;
+		case 'ncad':      mesage('ERRO !','Erro ao cadastrar !','error');  break;
+		case 'log': 	  mesage('LOGADO !','Você está logado no sistema !','info');  break;
+		case 'nlog':      mesage('LOGAR !','Voçê não está logado !','info');  break;
+		case 'alt':       mesage('ALTERADO !','Registro Alterado com sucesso!','success');  break;
+		case 'nalt':      mesage('ERRO !','Erro ao alterar o registro !','error');  break;
+		case 'sav':       mesage('SALVO !','Registro salvo com sucesso !','success');  break;
+		case 'nsav':      mesage('ERRO !','Erro ao salvar o registro !','error');  break;	
+		case 'env':		  mesage('SUCESSO !','Email enviado','success'); break;	
+		default: '';      mesage('OLA !','Seja Bem Vindo!','success');  break;
 		}
 	}
 
- 
+	function mesage($titulo,$mensagem,$icone){
+		$end = base_url();
+		//echo"<script src='$end/lte/js/sweetalert2.all.js'></script>";
+		echo"
+		   <script>
+		   let timerInterval
+		   Swal.fire({
+			 title: '<b>$titulo</b>',
+			 html: '$mensagem',
+			 icon: '$icone',
+			 timer: 3000,			 
+			 footer: '<a href>Por favor aguarde.</a>',
+			 timerProgressBar: true,
+			 willOpen: () => {
+			   Swal.showLoading()
+			   timerInterval = setInterval(() => {
+				 const content = Swal.getContent()
+				 if (content) {
+				   const b = content.querySelector('b')
+				   if (b) {
+					 b.textContent = Swal.getTimerLeft()
+				   }
+				 }
+			   }, 100)
+			 },
+			 onClose: () => {
+			   clearInterval(timerInterval)
+			 }
+		   }).then((result) => {
+			 /* Read more about handling dismissals below */
+			 if (result.dismiss === Swal.DismissReason.timer) {
+			   console.log('I was closed by the timer')
+			 }
+		   }) 
+		   </script>
+		";
+	}
+
 
 
 	/* MENSAGENS DE ERRO PARA O USUÁRIO

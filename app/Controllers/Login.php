@@ -22,8 +22,8 @@ class Login extends BaseController{
 	/*
 	|--------------------------------------------------------------------------
 	| Validar e logar 	
-	| Verifica se o email existe no banco de dados e faz o login
 	|--------------------------------------------------------------------------
+	| Verifica se o email existe no banco de dados e faz o login
 	*/
 	public function validar(){
 		
@@ -59,8 +59,8 @@ class Login extends BaseController{
 	/*
 	|--------------------------------------------------------------------------
 	|  Esqueceu a senha e  forgot
-	|  Encaminha para criação de nova senha
 	|--------------------------------------------------------------------------
+	|  Encaminha o usuário para criação de nova senha	
 	*/
 	public function forgot(){
 		echo view('login/forgot');
@@ -118,7 +118,7 @@ class Login extends BaseController{
 		
 		$model->save($dados);
 
-		return redirect()->to(base_url().'/public/Login/index/ok');
+		return redirect()->to(base_url().'/public/Login/index/sav');
 
 		}else{
 
@@ -149,7 +149,7 @@ class Login extends BaseController{
 			session()->set($data);
 			return redirect()->to(base_url().'/public/Home/index/ok');
 		}else {
-			return redirect()->to(base_url().'/public/login/register/erro' );	
+			return redirect()->to(base_url().'/public/login/register/nsav' );	
 		}		
 	}
 
@@ -162,7 +162,7 @@ class Login extends BaseController{
 	*/
 	public function deslogar(){
 		session()->destroy();
-		return redirect()->to(base_url().'/public/login/index/deslogado');
+		return redirect()->to(base_url().'/public/login/index/nlog');
 	}
 	
 	

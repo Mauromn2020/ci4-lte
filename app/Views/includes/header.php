@@ -19,14 +19,17 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/summernote/summernote-bs4.min.css">	
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/sweetalert2/sweetalert2.min.css">
-	
+
+
+<script src="<?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.js"></script> 
+<link  href="<?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
 		
 <?php 
-	if( ! session()->get('CliUser') ){ direciona( base_url().'/public/login');  }
+	if( ! session()->get('CliUser') ){ direciona( base_url().'/public/login/index/nlog');  }
 	include_once('navbar-topo.php') 		
 ?>		
 

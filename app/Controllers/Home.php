@@ -30,10 +30,21 @@
 		}	
 		
 		
-		public function modal($xx = ''){
-			$data['xx'] = $xx;
+		
+		public function modal($msg = ''){
+			$data['msg'] = $msg;
 			echo view('includes/header', $data);
 			echo view('views-modelo/modals');
+			echo view('includes/footer');
+		}
+
+
+
+		public function swheetalert2($msg = ''){
+			$data['msg'] = $msg ; 
+
+			echo view('includes/header', $data);
+			echo view('swheetalert2');
 			echo view('includes/footer');
 		}
 

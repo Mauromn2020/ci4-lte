@@ -1,5 +1,5 @@
 
-
+ <?php  if( $msg != ''){ mensagem($msg); } ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -21,18 +21,7 @@
           </div>
         </div>
       </div><!-- /.container-fluid -->
-    </section>
-
-<?php 
-  if($xx === 'a'){
-    require_once('msgSuccess.php');
-  }?>
-
-<?php 
-if($xx === 'x'){
-  require_once('msgErro.php');
-}?>
-
+    </section>  
 
     <!-- Main content -->
     <section class="content">
