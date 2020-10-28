@@ -24,6 +24,9 @@ $cor = isset($_REQUEST['cor'])  ? $_REQUEST['cor'] : 'info';
 <li class="nav-item"><a href="<?php echo base_url(); ?>/public" class="nav-Link"></a></li>
 
 
+
+
+
 		<li class="nav-item dropdown">
 		<a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Cadastros</a>
 		<ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
@@ -53,20 +56,52 @@ $cor = isset($_REQUEST['cor'])  ? $_REQUEST['cor'] : 'info';
 				</li> 
 				</ul>
 				</li>
-				<!-- / Segundo nível -->			
-
+				<!-- / Segundo nível -->	
 		</ul>
 		</li>	
+
+
+		<li class="nav-item dropdown">
+		<a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Uteis</a>
+		<ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+
+      <li><a href="<?php echo base_url();?>/public/Home/swheetalert2/x " class="dropdown-item" target="_blank">Sweetalert2</a></li>	
+      <li><a href="<?php echo base_url();?>/public" class="dropdown-item">Home</a></li> 
+			<li class="dropdown-divider"></li>
+			<li><a href="<?php echo base_url();?>/public/Home/modal/sav" class="dropdown-item">Modais</a></li> 
+
+
+				<!-- Segundo nível -->			
+				<li class="dropdown-submenu dropdown-hover">
+				<a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Nível 3</a>
+				<ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
+				<li><a tabindex="-1" href="#" class="dropdown-item">Link Um</a></li>
+				<li><a href="#" class="dropdown-item">Link Dois</a></li>
+
+				<li><a href="<?php //echo base_url(); ?>/public/home/listar" class="dropdown-item">Link Tres</a></li>
+
+				<li class="dropdown-submenu">
+				<a id="dropdownSubMenu3" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Outro nível</a>
+				<ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
+				  <li><a href="<?php  //echo base_url(); ?>/public/home/listar" class="dropdown-item">Listar</a></li>
+				  <li><a href="#" class="dropdown-item">Cadastrar</a></li>
+				</ul>
+				</li> 
+				</ul>
+				</li>
+				<!-- / Segundo nível -->	
+		</ul>
+		</li>	
+
 		  
-		  
-		  
+     <!-- DROPDOWN UTEIS      -->
 		<li class="nav-item dropdown">
 		<a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Admin</a>
 		<ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
 
-<li><a href="https://codeigniter.com/user_guide/index.html" class="dropdown-item" target="_blank">Manual ci4</a></li>	
-<li><a href="<?php echo base_url(); ?>/public/login" class="dropdown-item">Logar</a></li> 
-<li><a href="<?php echo base_url(); ?>/public/login/deslogar" class="dropdown-item">Deslogar</a></li> 			
+    <li><a href="https://codeigniter.com/user_guide/index.html" class="dropdown-item" target="_blank">Manual ci4</a></li>	
+    <li><a href="<?php echo base_url(); ?>/public/login" class="dropdown-item">Logar</a></li> 
+    <li><a href="<?php echo base_url(); ?>/public/login/deslogar" class="dropdown-item">Deslogar</a></li> 			
 
 		</ul>
 		</li>			  

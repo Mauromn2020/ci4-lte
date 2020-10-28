@@ -31,10 +31,8 @@ class Login extends BaseController{
 		$data['mail'] = $model->getEmail($this->request->getVar('email'));	
 		
 		if( empty($data['mail'] ) ){
-			throw new \CodeIgniter\Exceptions\PageNotFoundException('USUARIO OU SENHA INCORRETOS');
-			
-		}else{
-		
+			throw new \CodeIgniter\Exceptions\PageNotFoundException('USUARIO OU SENHA INCORRETOS');			
+		}else{		
 			if ( password_verify( $this->request->getVar('senha'), $data['mail']['senha'] ) === true ) {			
 				$dados = array(
 				'email'  => $data['mail']['email'],
@@ -46,11 +44,9 @@ class Login extends BaseController{
 				'lembrar'=> $this->request->getVar('remember')
 			);
 				session()->set($dados);					
-				return redirect()->to(base_url().'/public/home');
-			
+				return redirect()->to(base_url().'/public/home/index/log');			
 			} else {
-				return redirect()->to(base_url().'/public/login' );	
-			    //throw new \CodeIgniter\Exceptions\PageNotFoundException('USUÁRIO OU SENHA INCORRETOS');
+				return redirect()->to(base_url().'/public/login/index/nlog' );	
 			}	
     	}		
 	}	
@@ -60,12 +56,19 @@ class Login extends BaseController{
 	|--------------------------------------------------------------------------
 	|  Esqueceu a senha e  forgot
 	|--------------------------------------------------------------------------
-	|  Encaminha o usuário para criação de nova senha	
+	|  Encaminha o usuário para criação de nova senha e retorna para função
+	|  esqueceu abaixo.	
 	*/
 	public function forgot(){
 		echo view('login/forgot');
 	}
 	
+	/*
+	|--------------------------------------------------------------------------
+	|  Esqueceu 
+	|--------------------------------------------------------------------------
+	| Salva a nova senha do usuário  desde o form forgot
+	*/
 	public function esqueceu(){
 		$email = $this->request->getvar('email');
 		$model = new LoginModel();
@@ -80,8 +83,7 @@ class Login extends BaseController{
 			);
 
 			echo view('login/recover', $dados);
-		}
-
+		}		
 	}
 	
 
@@ -89,21 +91,46 @@ class Login extends BaseController{
 
 	/*
 	|--------------------------------------------------------------------------
-	| Register 
-	| Registrar o usuario 
+	| REGISTER
 	|--------------------------------------------------------------------------
+	| Vai para o formulário de registro de usuários e retorna para 
+	| a função abaixo
 	*/
 	public function register(){
 		echo view('login/register');
-	}
-
 
 
 	/*
 	|--------------------------------------------------------------------------
-	| Nova senha 
-	| Cadastrar nova senha se usuario esqueceu	
+	| SALVAR USUARIO
 	|--------------------------------------------------------------------------
+	*/
+	public function salvarUsuario(){
+		$model = new LoginModel();			
+		$data = array(
+			'nome'    =>  $this->request->getVar('nome')  ,
+			'email'   =>  $this->request->getVar('email') ,	
+			'senha'   =>  password_hash( $this->request->getVar('senha'), PASSWORD_DEFAULT ) ,	
+			'CliUser' =>  random_int(100,999) . date('His') ,	
+			'ativo'   =>  1 		
+		);	
+
+		if( isset($data['nome']) and isset($data['email']) and isset($data['senha'])  ){
+			$model->save($data);
+			
+			session()->set($data);
+			return redirect()->to(base_url().'/public/Home/index/log');
+		}else {
+			return redirect()->to(base_url().'/public/login/register/nsav' );	
+		}		
+	}
+
+
+	/*
+	|--------------------------------------------------------------------------
+	| SALVAR NOVA SENHA
+	|--------------------------------------------------------------------------
+	| Cadastrar nova senha se usuário esquecido
 	*/
 	public function nova(){
 		$model = new LoginModel();
@@ -127,37 +154,11 @@ class Login extends BaseController{
 	}	
 
 
-
-	/*
-	|--------------------------------------------------------------------------
-	|  Salvar Usuario
-	|--------------------------------------------------------------------------
-	*/
-	public function salvarUsuario(){
-		$model = new LoginModel();			
-		$data = array(
-			'nome'    =>  $this->request->getVar('nome')  ,
-			'email'   =>  $this->request->getVar('email') ,	
-			'senha'   =>  password_hash( $this->request->getVar('senha'), PASSWORD_DEFAULT ) ,	
-			'CliUser' =>  random_int(100,999) . date('His') ,	
-			'ativo'   =>  1 		
-		);	
-
-		if( isset($data['nome']) and isset($data['email']) and isset($data['senha'])  ){
-			$model->save($data);
-			
-			session()->set($data);
-			return redirect()->to(base_url().'/public/Home/index/ok');
-		}else {
-			return redirect()->to(base_url().'/public/login/register/nsav' );	
-		}		
-	}
-
 	
 	
 	/*
 	|--------------------------------------------------------------------------
-	| Deslogar 
+	| DESLOGAR 
 	|--------------------------------------------------------------------------
 	*/
 	public function deslogar(){
