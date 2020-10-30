@@ -1,3 +1,4 @@
+
 <div class="container"> 
 <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -15,9 +16,7 @@
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </div><!-- /.content-header -->
-	  
-	  
+    </div><!-- /.content-header -->	  
 	  
 
     <!-- Main content -->

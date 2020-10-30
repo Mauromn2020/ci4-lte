@@ -1,28 +1,22 @@
 <?php
 
 	namespace App\Controllers;
-	use CodeIgniter\Controller;
+    use CodeIgniter\Controller;
+    use App\Helpers;
 
-	class Home extends BaseController {
+	class Testes extends BaseController {
+
+
 		public function index($msg = '')
 		{
-			$data['cor'] = 'warning';
-			$data['msg'] = $msg;
-			
-			echo view('includes/header', $data );
-			echo view('modelos/dash1');
+            $data['msg'] = $msg;
+            	
+            echo view('includes/header', $data );
+			echo view('views-modelo/basico');
 			echo view('includes/footer' );
 		}
 
-		// public function enviaEmail(){
-		// 	if ( enviaEmail() ) {
-		// 		alerta("Email enviado com successo !");
-		// 	} else {
-		// 		alerta("Erro ao enviar o email !");
-		// 	}
-		// }
-
-				
+		
 		public function modal($msg = ''){
 			$data['msg'] = $msg;
 			

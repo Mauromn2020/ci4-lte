@@ -9,9 +9,15 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/css/adminlte.min.css">
+	
+<script src="<?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.js"></script> 
+<link  href="<?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+
+
 </head>
 
 <body class="hold-transition login-page">
+
 <div class="login-box">
   <div class="login-logo">
     <a href="<?php echo base_url();?>/public "><b>Sistemas</b>MMsys</a>
@@ -20,27 +26,12 @@
   <div class="card">
     <div class="card-body login-card-body">
 
-    <?php 
-        if( $msg != ''){
-          //alerta($msg);
-          mensagem($msg); 
-          //mesage("ERRO !","Erro ao processar a $msg","error");         
-        }
-   //mesage('SUCESSO','Registro Salvo com sucesso','success');  
-    
-    ?>
-
-      <?php
-        // switch ($msg) {
-        // case 'logar':     mesage('ATENÇÃO !','Voçê não está logado !','warning');  break;
-        // case 'erro':      mesage('ERRO !','Erro ao processar o registro !','error');  break;
-        // case 'deslogado': mesage('ATENÇÃO !','Voçê não está logado !','warning');  break;
-        // case 'perigo':    mesage('PERIGO !','Voçê não deve fazer isso !','dark');  break;
-        // default: '';                                                 break;         
-        //}
+      <p class="login-box-msg"><br>
+      <?php  
+      if( $msg === 'nlog'){ msg_att('Você não está logado no sistema!'); } 
+      if( $msg ===  'log'){ msg_att('Você está logado no sistema!'); }
       ?>
-
-      <p class="login-box-msg">Iniciar uma nova sessão. <br> Para ter acesso total !</p>
+      </p>
 
       <form action="<?php echo base_url() ?>/public/login/validar" method="post">
 		  

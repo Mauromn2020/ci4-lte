@@ -1,28 +1,28 @@
 
 <div class="content-wrapper">
-    
+
+
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>
-              Modals & Alerts
-              <small>new</small>
+              Sweetalert2 <small>Alertas</small>
             </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Modals & Alerts</li>
+              <li class="breadcrumb-item"><a href="<?= URL ?>; ">Home</a></li>
+              <li class="breadcrumb-item active"><?= "Alertas   " ?></li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
-    </section>  
-
-  
-
+    </section> 
+	
+	
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -36,26 +36,23 @@
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
+ 	<?php if( $msg != ''){ mensagem($msg); } ?>	
 
- <?php  if( $msg != ''){ mensagem($msg); } ?>
-
-<p><a onClick="NewWindow(this.href,'name','800','600','yes');return false;" 
-href="https://sweetalert2.github.io/#download">
-Baixar o sweetalert2 aqui.
-</a> </p>
+<a href="https://sweetalert2.github.io/#download">Baixar o sweetalert2 aqui.</a>
 
     <br><br>
 
 <p>Inserir as tags abaixo no header.php. Sómente alterando o caminho dos arquivos sweetalert2</p>
 <code>
 < script src="< ?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.js">< /script> <br>
-< link  href="< ?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.css" rel="stylesheet"><br>
+< link  href="< ?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.css" rel = "stylesheet"><br>
 </code>
 
-    <br><br>
+<br><br>
 
 <p>Chamar a função mensagem($msg) que esta no arquivo   mf_helper.php  na pasta helpers</p>
-<code> < ?php  if( $msg != ''){ mensagem($msg); } ?></code>
+<code> 
+	< ?php  if( $msg != ''){ mensagem($msg); } ?></code>
 <br>
 <br>
 <p>Função mensagem. Recebe o tipo de mensagem a ser exibida e chama a função abaixo para mostrar o alerta</p>
@@ -71,7 +68,7 @@ Baixar o sweetalert2 aqui.
 		case 'sav':       mesage('SALVO !','Registro salvo com sucesso !','success');  break;<br>
 		case 'nsav':      mesage('ERRO !','Erro ao salvar o registro !','error');  break;	<br>
 		case 'env':		  mesage('SUCESSO !','Email enviado','success'); break;	<br>
-		default: '';      mesage('OLA !','Seja Bem Vindo!','success');  break;<br>
+		default: '';      mesage('OLA !','Seja Bem Vindo !','success');  break;<br>
 		}<br>
 	}</code>
 

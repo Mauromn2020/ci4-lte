@@ -27,13 +27,16 @@
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
-		
+
 <?php 
+$msg = ( isset($msg) ) ? $msg: '' ; 
+
+  if( $msg != ''){ mensagem($msg); } 
+
 	if( ! session()->get('CliUser') ){ direciona( base_url().'/public/login/index/nlog');  }
 	include_once('navbar-topo.php') 		
 ?>		
-
-  <!-- Content Wrapper. Contains page content -->
+  <!-- Content Wrapper. Contains page content  -->
   <div class="content-wrapper">
   
 	  

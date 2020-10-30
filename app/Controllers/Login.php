@@ -14,10 +14,14 @@ class Login extends BaseController{
 	*/
 	public function index($msg = ''){  
 		$data['msg'] = $msg ;
+
 		echo view('login/login', $data);	
 	}
 	
 	
+
+
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,6 +56,9 @@ class Login extends BaseController{
 	}	
 	
 	
+
+
+
 	/*
 	|--------------------------------------------------------------------------
 	|  Esqueceu a senha e  forgot
@@ -59,10 +66,15 @@ class Login extends BaseController{
 	|  Encaminha o usuário para criação de nova senha e retorna para função
 	|  esqueceu abaixo.	
 	*/
-	public function forgot(){
-		echo view('login/forgot');
+	public function forgot($msg = ''){
+		$data['msg'] = $msg ;
+		echo view('login/forgot', $data);
 	}
 	
+
+
+
+
 	/*
 	|--------------------------------------------------------------------------
 	|  Esqueceu 
@@ -71,23 +83,49 @@ class Login extends BaseController{
 	*/
 	public function esqueceu(){
 		$email = $this->request->getvar('email');
+		
 		$model = new LoginModel();
 		$data['mail'] = $model->getEmail($email);
 
 		if (empty($data['mail'])) {
-			throw new \CodeIgniter\Exceptions\PageNotFoundException('EMAIL NÃO CADASTRADO !');
-		} else {
-			$dados = array(
-				"id" => $data['mail']['id'],
-				"nome" => $data['mail']['nome'],
-			);
+			return redirect()->to(base_url().'/public/login/forgot/xemail');
+		} else{
 
-			echo view('login/recover', $dados);
+			$email = $data['mail']['email'];
+			$user  = $data['mail']['CliUser'];
+			$nome  = $data['mail']['nome'];
+			$id    = $data['mail']['id'];
+
+			$email = \Config\Services::email();
+
+			$email->setFrom('mauro@mmsites.com.br', 'MMsites sistemas web');
+			$email->setTo($data['mail']['email']);
+			$horario = date('d/m/Y - H:i:s');
+			$email->setSubject('Nova senha solicitada no MMsites');
+			$url = base_url();
+			$email->setMessage("
+				<html>
+				<hr>
+				<h2>Click no link abaixo para alterar sua senha</h2>
+				<a href='$url/public/login/esqVolta/$user/$id'>Alterar senha MMsites</a>			
+				<hr>
+				<h3> <?= $horario ?></h3>		
+				</html>
+			");		
+			$email->send();
+
+			return redirect()->to(base_url().'/public/login/index/envEmail');	
+
 		}		
 	}
 	
-
-
+	public function esqVolta(){
+		echo"
+			<script src='<?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.js'></script> <br>	
+			<link  href='<?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.css' rel='stylesheet'><br>
+			<script> Swal.fire('Any fool can use a computer') </script>
+		 ";
+	}
 
 	/*
 	|--------------------------------------------------------------------------
@@ -98,6 +136,10 @@ class Login extends BaseController{
 	*/
 	public function register(){
 		echo view('login/register');
+	}	
+
+
+
 
 
 	/*
@@ -126,6 +168,8 @@ class Login extends BaseController{
 	}
 
 
+
+
 	/*
 	|--------------------------------------------------------------------------
 	| SALVAR NOVA SENHA
@@ -138,22 +182,21 @@ class Login extends BaseController{
 		$novasenha = password_hash($this->request->getVar('novasenha'), PASSWORD_DEFAULT) ;
 		
 		if( isset($id) and isset($novasenha) ){
-		$dados = array(
-			'id'=> $id ,
-			'senha'=> $novasenha
-		);
-		
-		$model->save($dados);
+			$dados = array(
+				'id'=> $id ,
+				'senha'=> $novasenha
+			);
+			
+			$model->save($dados);
 
-		return redirect()->to(base_url().'/public/Login/index/sav');
-
+			return redirect()->to(base_url().'/public/Login/index/sav');
 		}else{
-
+			return redirect()->to(base_url().'/public/Login/index/nsav');
 		}
-
 	}	
 
 
+	
 	
 	
 	/*
@@ -165,6 +208,16 @@ class Login extends BaseController{
 		session()->destroy();
 		return redirect()->to(base_url().'/public/login/index/nlog');
 	}
+
+
+
+
+	public function nvpass(){
+		$id = 12345 ;
+		alerta('Vamos criar uma nova senha aqui,<br><h2>Aguardemmmmmm !</h2>');
+	}
+
+	//https://mmsites.com.br/ci4-lte/public/login/nvpass/12345
 	
 	
 }

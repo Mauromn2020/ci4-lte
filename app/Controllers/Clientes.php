@@ -13,13 +13,11 @@ class Clientes extends BaseController{
 	    $data['cli'] = $model->getClientes($id);
 
 		if(empty( $data['cli'] ) ){
-			throw new \CodeIgniter\Exceptions\PageNotFoundException('ÍTEM NÃO ENCONTRADO'.$id);
-		}else{
-		
+			throw new \CodeIgniter\Exceptions\PageNotFoundException('<hr>NENHUM CLIENTE ENCONTRADO<hr>'.$id);
+		}else{		
 			echo view('includes/header');
 			echo view('clientes/lista-clientes', $data);
-			echo view('includes/footer');
-			
+			echo view('includes/footer');			
 		}
 	}
 	

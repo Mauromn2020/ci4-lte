@@ -65,13 +65,13 @@ $cor = isset($_REQUEST['cor'])  ? $_REQUEST['cor'] : 'info';
 		<a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Uteis</a>
 		<ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
 
-      <li><a href="<?php echo base_url();?>/public/Home/swheetalert2/x " class="dropdown-item" target="_blank">Sweetalert2</a></li>	
+      <li><a href="<?php echo base_url();?>/public/Home/sweetalert2/x" class="dropdown-item" target="_blank">Sweetalert2</a></li>	
       <li><a href="<?php echo base_url();?>/public" class="dropdown-item">Home</a></li> 
 			<li class="dropdown-divider"></li>
 			<li><a href="<?php echo base_url();?>/public/Home/modal/sav" class="dropdown-item">Modais</a></li> 
 
 
-				<!-- Segundo nível -->			
+				<!-- Segundo nível-->			
 				<li class="dropdown-submenu dropdown-hover">
 				<a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Nível 3</a>
 				<ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
