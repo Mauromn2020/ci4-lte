@@ -7,22 +7,21 @@
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
+
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/fontawesome-free/css/all.min.css">
-  <!-- icheck bootstrap -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/lte/css/adminlte.min.css">
+
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../index2.html"><b>Sistemas</b>MMsys</a>
+    <a href="#"><b>Sistemas</b>MMsys</a>
   </div>
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Registrar um novo usuário</p>
+      <p class="login-box-msg">Registrar um usuário</p>
 
       <form action="<?php echo base_url();?>/public/Login/salvarUsuario" method="post">
         <div class="input-group mb-3">
@@ -68,7 +67,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-info btn-block">Registrar</button>
+            <button type="submit" class="btn btn-info btn-block">Enviar</button>
           </div>
           <!-- /.col -->
         </div>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MMsys - Recuperar senha</title>
-
+msg
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -22,8 +22,8 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg"> Caro <?php echo $id.' : '.$nome ?> <br> Somente mais um passo para criar sua nova senha.</p>
-      
+      <p class="login-box-msg"> Caro Cliente:  <?php echo $nome ?> <br> Digite sua nova senha.</p>
+
       <form action="<?php echo base_url()?>/public/login/nova" method="post">
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Nova senha" name="novasenha" autofocus required>

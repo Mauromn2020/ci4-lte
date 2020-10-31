@@ -13,7 +13,6 @@
 <script src="<?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.js"></script> 
 <link  href="<?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.css" rel="stylesheet">
 
-
 </head>
 
 <body class="hold-transition login-page">
@@ -30,6 +29,9 @@
       <?php  
       if( $msg === 'nlog'){ msg_att('Você não está logado no sistema!'); } 
       if( $msg ===  'log'){ msg_att('Você está logado no sistema!'); }
+      if( $msg === 'sav' ){ msg_ok('Senha alterada com sucesso !'    ); } 
+      if( $msg === 'nsav'){ msg_ok('Problemas ao alterar sua senha !'); }  
+      if( $msg === 'envEmail'){ msg_ok('Click no link enviado para seu email, para alterar sua senha !'); }    
       ?>
       </p>
 
@@ -68,15 +70,17 @@
         </div>
       </form>
 
-<!--      <div class="social-auth-links text-center mb-3">
+      <!--      
+        <div class="social-auth-links text-center mb-3">
         <p><strong>- Ou -</strong></p>
         <a href="#" class="btn btn-block btn-info">
-          <i class="fab fa-facebook mr-2"></i> Logar usando o Facebook
+        <i class="fab fa-facebook mr-2"></i> Logar usando o Facebook
         </a>
         <a href="#" class="btn btn-block btn-warning">
-          <i class="fab fa-google-plus mr-2 "></i> Logar usando o Google
+        <i class="fab fa-google-plus mr-2 "></i> Logar usando o Google
         </a>
-      </div><!-- /.social-auth-links -->
+        </div>< !-- /.social-auth-links 
+      -->
 
       <p class="mb-1">
         <a href="<?php echo base_url(); ?>/public/Login/forgot">Esqueci minha senha</a>

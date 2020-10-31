@@ -10,7 +10,7 @@
 			$data['msg'] = $msg;
 			
 			echo view('includes/header', $data );
-			echo view('modelos/dash1');
+			echo view('home');
 			echo view('includes/footer' );
 		}
 

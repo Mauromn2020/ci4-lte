@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
+            <h1 class="m-0 text-dark"><?php echo $_SESSION['nome']; ?></h1>
 
           </div><!-- /.col -->
           <div class="col-sm-6">
@@ -23,72 +23,93 @@
     <!-- /.content-header -->
 
 
+
+
+    <!-- BOTÕES QUADRADOS NO TOPO -->
+    <div class="card" > <center>
+
+      <div class="card-body">
+
+
+        <a class="btn btn-app">
+          <span class="badge bg-purple"> 
+          <?php 
+              use App\Models\ClientesModel;
+              $cli = new ClientesModel(); 
+              $cli->contReg($_SESSION['CliUser']);
+          ?>  
+          </span>
+          <i class="fas fa-users"></i> Clientes
+        </a>
+
+
+
+        <a class="btn btn-app">
+          <span class="badge bg-success">
+              <?php 
+                  use App\Models\ProdutosModel;
+                  $pro = new ProdutosModel;
+                  $pro->contReg($_SESSION['CliUser']);
+              ?>
+          </span>
+          <i class="fas fa-barcode"></i> Produtos
+        </a>
+
+
+
+        <a class="btn btn-app">
+          <span class="badge bg-teal">
+              <?php 
+                  use App\Models\PedidosModel;
+                  $ped = new PedidosModel;
+                  $ped->contReg($_SESSION['CliUser']);
+              ?>
+          </span>
+          <i class="fas fa-inbox"></i> Pedidos
+        </a>
+
+
+        <a class="btn btn-app">
+          <i class="fas fa-edit"></i> Edit
+        </a>
+        <a class="btn btn-app">
+          <i class="fas fa-play"></i> Play
+        </a>
+        <a class="btn btn-app">
+          <i class="fas fa-pause"></i> Pause
+        </a>
+        <a class="btn btn-app">
+          <i class="fas fa-save"></i> Save
+        </a>
+        <a class="btn btn-app">
+          <span class="badge bg-warning">3</span>
+          <i class="fas fa-bullhorn"></i> Notificações
+        </a>
+
+        <a class="btn btn-app">
+          <span class="badge bg-info">12</span>
+          <i class="fas fa-envelope"></i> Cx Entrada
+        </a>
+        <a class="btn btn-app">
+          <span class="badge bg-danger">531</span>
+          <i class="fas fa-heart"></i> Likes
+        </a>
+      </div> </center>             
+    </div>
+    <!-- FINAL BOTÕES QUADRADOS NO TOPO -->
+
+
+
+
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
 
-                <p>New Orders</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                <p>Bounce Rate</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
+        
 
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
 
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-        </div>
+
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">

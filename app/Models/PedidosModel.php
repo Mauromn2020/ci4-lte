@@ -3,13 +3,13 @@
 namespace App\Models;
 use CodeIgniter\Model;
 
-class ProdutosModel extends Model{
+class PedidosModel extends Model{
 	
-	protected $table = 'produtos';
+	protected $table = 'pedidos';
 	protected $primaryKey = 'id';
-	protected $allowedFields = ['id','nome','Descricao','Fabricante','peso','compra','venda','lucro','distribuidor','estoque','unidade','Tipo','CliUser','ativo'];
+	protected $allowedFields = ['id','numero','bloco','cliente','vendedor','data','vencimento','pagamento','pago','chqs','horario','location','CliUser','ativo'];
 	
-	public function getProdutos($id = null){			
+	public function getPedidos($id = null){			
 		if($id === null){
 			return $this->orderBy('id', 'asc')->findAll();
 		}		

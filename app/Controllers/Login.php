@@ -48,7 +48,7 @@ class Login extends BaseController{
 				'lembrar'=> $this->request->getVar('remember')
 			);
 				session()->set($dados);					
-				return redirect()->to(base_url().'/public/home/index/log');			
+				return redirect()->to(base_url().'/public/home');			
 			} else {
 				return redirect()->to(base_url().'/public/login/index/nlog' );	
 			}	
@@ -61,7 +61,7 @@ class Login extends BaseController{
 
 	/*
 	|--------------------------------------------------------------------------
-	|  Esqueceu a senha e  forgot
+	|  Forgot(), Esqueceu() , eback() e nova()
 	|--------------------------------------------------------------------------
 	|  Encaminha o usuário para criação de nova senha e retorna para função
 	|  esqueceu abaixo.	
@@ -70,17 +70,8 @@ class Login extends BaseController{
 		$data['msg'] = $msg ;
 		echo view('login/forgot', $data);
 	}
+
 	
-
-
-
-
-	/*
-	|--------------------------------------------------------------------------
-	|  Esqueceu 
-	|--------------------------------------------------------------------------
-	| Salva a nova senha do usuário  desde o form forgot
-	*/
 	public function esqueceu(){
 		$email = $this->request->getvar('email');
 		
@@ -107,7 +98,7 @@ class Login extends BaseController{
 				<html>
 				<hr>
 				<h2>Click no link abaixo para alterar sua senha</h2>
-				<a href='$url/public/login/esqVolta/$user/$id'>Alterar senha MMsites</a>			
+				<a href='$url/public/login/eback/$user/$id'>Alterar senha MMsites</a>			
 				<hr>
 				<h3> <?= $horario ?></h3>		
 				</html>
@@ -115,17 +106,60 @@ class Login extends BaseController{
 			$email->send();
 
 			return redirect()->to(base_url().'/public/login/index/envEmail');	
-
 		}		
 	}
 	
-	public function esqVolta(){
-		echo"
-			<script src='<?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.js'></script> <br>	
-			<link  href='<?php echo base_url();?>/lte/sweetalert2/sweetalert2.min.css' rel='stylesheet'><br>
-			<script> Swal.fire('Any fool can use a computer') </script>
-		 ";
+	public function eback($user,$id){		
+		$model = new LoginModel();
+
+		$data['id'] = $model->getLogin($id);
+
+		if( empty($data['id'] ) ){
+			return redirect()->to( base_url().'/public/login/forgot');				
+		}else{
+
+			$dados = array(
+				'nome'   => $data['id']['nome'],
+				'id'     => $data['id']['id'],
+				'CliUser'=> $data['id']['CliUser'],
+			);
+	
+			echo view('login/recover', $dados);
+
+    	}			
+
 	}
+
+	public function nova(){
+		$model = new LoginModel();
+
+		$id = $this->request->getVar('id');
+		$updated = date('Y-m-d H:i:s');
+		
+		alerta($id .' - '. $updated);
+
+		$novasenha = password_hash($this->request->getVar('novasenha'), PASSWORD_DEFAULT) ;
+		
+		if( isset($id) and isset($novasenha) ){
+			$dados = array(
+				'id'=> $id ,
+				'senha'=> $novasenha,
+				'updated_at' => $updated
+			);
+			
+			$model->save($dados);
+
+			return redirect()->to(base_url().'/public/Login/index/sav');
+		}else{
+			return redirect()->to(base_url().'/public/Login/index/nsav');
+		}
+	}	
+
+
+
+
+
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -139,8 +173,8 @@ class Login extends BaseController{
 	}	
 
 
-
-
+	//deletar usuario  aqui
+	// deleted_at 
 
 	/*
 	|--------------------------------------------------------------------------
@@ -154,14 +188,15 @@ class Login extends BaseController{
 			'email'   =>  $this->request->getVar('email') ,	
 			'senha'   =>  password_hash( $this->request->getVar('senha'), PASSWORD_DEFAULT ) ,	
 			'CliUser' =>  random_int(100,999) . date('His') ,	
-			'ativo'   =>  1 		
+			'ativo'   =>  1 ,
+			'created_at'-> date('Y-m-d H:i:s')		
 		);	
 
 		if( isset($data['nome']) and isset($data['email']) and isset($data['senha'])  ){
 			$model->save($data);
 			
 			session()->set($data);
-			return redirect()->to(base_url().'/public/Home/index/log');
+			return redirect()->to(base_url().'/public/Home');
 		}else {
 			return redirect()->to(base_url().'/public/login/register/nsav' );	
 		}		
@@ -170,30 +205,7 @@ class Login extends BaseController{
 
 
 
-	/*
-	|--------------------------------------------------------------------------
-	| SALVAR NOVA SENHA
-	|--------------------------------------------------------------------------
-	| Cadastrar nova senha se usuário esquecido
-	*/
-	public function nova(){
-		$model = new LoginModel();
-		$id = $this->request->getVar('id');
-		$novasenha = password_hash($this->request->getVar('novasenha'), PASSWORD_DEFAULT) ;
-		
-		if( isset($id) and isset($novasenha) ){
-			$dados = array(
-				'id'=> $id ,
-				'senha'=> $novasenha
-			);
-			
-			$model->save($dados);
 
-			return redirect()->to(base_url().'/public/Login/index/sav');
-		}else{
-			return redirect()->to(base_url().'/public/Login/index/nsav');
-		}
-	}	
 
 
 	
@@ -210,14 +222,6 @@ class Login extends BaseController{
 	}
 
 
-
-
-	public function nvpass(){
-		$id = 12345 ;
-		alerta('Vamos criar uma nova senha aqui,<br><h2>Aguardemmmmmm !</h2>');
-	}
-
-	//https://mmsites.com.br/ci4-lte/public/login/nvpass/12345
 	
 	
 }

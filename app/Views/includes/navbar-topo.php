@@ -61,6 +61,8 @@ $cor = isset($_REQUEST['cor'])  ? $_REQUEST['cor'] : 'info';
 		</li>	
 
 
+
+    <!-- UTEIS -->
 		<li class="nav-item dropdown">
 		<a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Uteis</a>
 		<ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
@@ -69,7 +71,7 @@ $cor = isset($_REQUEST['cor'])  ? $_REQUEST['cor'] : 'info';
       <li><a href="<?php echo base_url();?>/public" class="dropdown-item">Home</a></li> 
 			<li class="dropdown-divider"></li>
 			<li><a href="<?php echo base_url();?>/public/Home/modal/sav" class="dropdown-item">Modais</a></li> 
-
+			<li><a href="<?php echo base_url();?>/public/Testes/ecommerce/sav" class="dropdown-item">E-Commerce</a></li> 
 
 				<!-- Segundo nível-->			
 				<li class="dropdown-submenu dropdown-hover">
@@ -96,17 +98,16 @@ $cor = isset($_REQUEST['cor'])  ? $_REQUEST['cor'] : 'info';
 		  
      <!-- DROPDOWN UTEIS      -->
 		<li class="nav-item dropdown">
-		<a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Admin</a>
-		<ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+		    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Admin</a>
+        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
 
-    <li><a href="https://codeigniter.com/user_guide/index.html" class="dropdown-item" target="_blank">Manual ci4</a></li>	
-    <li><a href="<?php echo base_url(); ?>/public/login" class="dropdown-item">Logar</a></li> 
-    <li><a href="<?php echo base_url(); ?>/public/login/deslogar" class="dropdown-item">Deslogar</a></li> 			
+            <li><a href="https://codeigniter.com/user_guide/index.html" class="dropdown-item" target="_blank">Manual ci4</a></li>	
+            <li><a href="<?php echo base_url(); ?>/public/login" class="dropdown-item">Logar</a></li> 
+            <li><a href="<?php echo base_url(); ?>/public/login/deslogar" class="dropdown-item">Deslogar</a></li> 			
 
-		</ul>
+        </ul>
 		</li>			  
-		  
-		  
+					  
 		   
 		  
 		  
